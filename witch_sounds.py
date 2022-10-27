@@ -19,7 +19,7 @@ scareSoundIndex = 0
 speechSoundIndex = 0
 
 speechTimer = 0
-speechTimeDelay = 5 * 60
+speechTimeDelay = 2 * 60
 
 catPlayCount = 0
 maxCatPlayCount = 3
