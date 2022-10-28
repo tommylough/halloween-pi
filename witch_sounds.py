@@ -22,6 +22,9 @@ scareSoundIndex = 0
 speechSoundIndex = 0
 speechTimer = 0
 speechTimeDelay = 2 * 60
+speechVolume = 0.6
+
+backgroundVolume = 0.5
 
 catPlayCount = 0
 maxCatPlayCount = 5
@@ -34,7 +37,7 @@ SCARE = 2
 pygame.init()
 pygame.mixer.init()
 
-Channel(SPEECH).set_volume(0.8)
+Channel(SPEECH).set_volume(speechVolume)
 
 # For no background music, run this script with system arg[1] set to "false" 
 try:
@@ -62,7 +65,7 @@ scareSoundArr = CreateList(scareSoundArr, scareSoundPath)
 speechSoundArr = CreateList(speechSoundArr, speechSoundPath)
 
 if(playBackground != False):
-    Channel(BACKGROUND).set_volume(0.4)
+    Channel(BACKGROUND).set_volume(backgroundVolume)
     Channel(BACKGROUND).play(backgroundSound, -1)
 
 pprint("Ready")
