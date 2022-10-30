@@ -22,9 +22,9 @@ scareSoundIndex = 0
 speechSoundIndex = 0
 speechTimer = 0
 speechTimeDelay = 2 * 60
-speechVolume = 0.6
+speechVolume = 1
 
-backgroundVolume = 0.5
+backgroundVolume = 0.3
 
 catPlayCount = 0
 maxCatPlayCount = 5
@@ -106,7 +106,7 @@ def CheckForMotion():
     global speechTimeDelay
 
     if pir.motion_detected:
-        UpdateCat(catPlayCount)
+        UpdateCat()
         StopSpeech()
         soundToPlay = StartScare(scareSoundIndex)
         scareSoundIndex = GetNextIndex(scareSoundIndex, scareSoundArr)
@@ -124,7 +124,8 @@ def CheckForMotion():
         else:
             speechTimer += 1
     
-def UpdateCat(catPlayCount):
+def UpdateCat():
+    global catPlayCount
     if catPlayCount >= maxCatPlayCount:
         catGPIOOutput.on()
         sleep(1)
